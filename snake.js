@@ -49,7 +49,7 @@
 		get: function (x, y) {
 			return this._grid[x][y];
 		}
-	}
+	};
 
 	var snake = {
 		direction: null,
@@ -73,7 +73,7 @@
 		remove: function () {
 			return this._queue.pop();
 		}
-	}
+	};
 
 	function setFood() {
 		var empty = [];
@@ -211,6 +211,10 @@
 					y: newY
 				};
 				score++;
+				// if (snake.length === COLS * ROWS - 1) {
+				// 	winGame();
+				// 	break;
+				// }
 				setFood();
 			} else {
 				var tail = snake.remove();
@@ -249,6 +253,10 @@
 		context.fillStyle = "#fff";
 		context.fillText("SCORE: " + score, 10, canvas.height - 10);
 	}
+
+	// function winGame() {
+
+	// }
 
 	function initializeScoreBoard() {
 		var tableData = document.getElementById("tableId").getElementsByTagName("td");
